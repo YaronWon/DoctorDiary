@@ -31,20 +31,7 @@ namespace DoctorDiary
             SqlDataReader reader = cmd.ExecuteReader();
             SQconn.Close();
 
-            SQconn.Open();
-           
             
-            HttpCookie Cookie1 = new HttpCookie("MyCookie");
-
-            Cookie1["Fname"] = reader["DocFName"].ToString();
-            Cookie1["Lname"] = reader["DocLName"].ToString();
-            Cookie1["DocId"] = reader["DocID"].ToString();
-
-            Cookie1.Expires = DateTime.Now.AddDays(30);
-            Response.Cookies.Add(Cookie1);
-            SQconn.Close();
-
-            Response.Redirect("AddingClinc.aspx");
         }
 
 
