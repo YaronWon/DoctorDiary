@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-.red-button {
-  background-color: red;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  cursor: pointer;
-}
-</style>
-</head>
-<body>
-
-<nav>
-  <a href="#" class="red-button">Home</a>
-  <a href="#" class="red-button">About</a>
-  <a href="#" class="red-button">Contact</a>
-</nav>
-
-</body>
+  <head>
+    <title>Timer</title>
+    <style>
+      /* center the timer display */
+      #timer {
+        text-align: center;
+        font-size: 72px;
+        color: green;
+      }
+      /* style the stop button */
+      #stop-button {
+        display: block;
+        margin: 0 auto;
+        padding: 15px;
+        background-color: red;
+        color: black;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- display the timer -->
+    <div id="timer"></div>
+    <!-- create the stop button -->
+    <button id="stop-button">Stop</button>
+    <script>
+      // set the initial timer value
+      let timer = 0;
+      
+      // display the timer
+      document.getElementById("timer").innerHTML = timer;
+      
+      // create the setInterval function to increment the timer
+      setInterval(() => {
+        timer++;
+        document.getElementById("timer").innerHTML = timer;
+      }, 1000);
+      
+      // create the stop button function
+      document.getElementById("stop-button").addEventListener("click", () => {
+        clearInterval();
+      });
+    </script>
+  </body>
 </html>
